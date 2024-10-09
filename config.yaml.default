@@ -1,9 +1,9 @@
 LogLevel: debug # trace, debug, info, warning, error. Trace level, as expected, is pretty noisy.
 RocketChat:
-  UserID: bot-userid
-  User: bot-username
+  UserID: rocket.cat
+  User: rocket.cat
   Password: bot-password
-  HostName: localhost # The rocketchat server hostname
+  HostName: 127.0.0.1 # The rocketchat server hostname
   Port: 3000
   SSL: true # If the rocketchat server has SSL on the above hostname.
 OpenAI:
