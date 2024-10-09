@@ -76,7 +76,8 @@ func (rock *RocketCon) handleMessageObject(obj map[string]interface{}) Message {
 	if strings.Contains(strings.ToLower(msg.Text), fmt.Sprintf("@%s", strings.ToLower(rock.UserName))) {
 		msg.IsMention = true
 	}
-
+	msg.IsMe = true
+	msg.IsMention = true
 	if len(msg.Text) > len(rock.UserName)+2 {
 		if string(strings.ToLower(msg.Text)[:len(rock.UserName)+2]) == fmt.Sprintf("@%s ", strings.ToLower(rock.UserName)) {
 			msg.AmIPinged = true
@@ -175,7 +176,7 @@ func (msg *Message) React(emoji string) error {
 func (msg *Message) GetNotAddressedText() string {
 	r := msg.Text
 	if len(msg.Text) > 2 && msg.AmIPinged {
-		r = string(strings.ToLower(msg.Text)[len(msg.rocketCon.UserName)+2:])
+		//r = string(strings.ToLower(msg.Text)[len(msg.rocketCon.UserName)+2:])
 	}
 	return r
 }
